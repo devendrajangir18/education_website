@@ -11,13 +11,13 @@ from .models import postcommit
 
 def postcommit(request):
     if request.method == 'POST':
-        title = request.POST['title']
+        # title = request.POST['title'] "title":title ,
         content = request.POST['content']
         username = request.POST['username']
         timeStamp = dt.now()
 
-        db.blogpost.insert_one({"title":title , "content": content, "username": username, "timeStamp": timeStamp})
-        post = {"title":title , "content": content, "username": username, "timeStamp": timeStamp}
+        db.blogpost.insert_one({ "content": content, "username": username, "timeStamp": timeStamp})
+        post = {"content": content, "username": username, "timeStamp": timeStamp}
 
         return redirect(f'/ucommit/post/', post)
 
@@ -37,12 +37,13 @@ def post_page(request, post_id):
 
         # if request.user.is_authenticated:    
         #     db.users.find_one({"username" : username})
-        # else:
-        #     messages.info(request, 'user not registered')
-        #     return redirect('postcommit')
 
         db.usercom.insert_one({"post_id": post_id, "content": content, "name": name, "timeStamp": timeStamp})
         return redirect(f'/ucommit/post/{post_id}')
+    
+    # else:
+        #     messages.info(request, 'user not registered')
+        #     return redirect('postcommit')
             
 
     else:
