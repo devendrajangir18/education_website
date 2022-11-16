@@ -11,44 +11,49 @@
 
 <body>
     {% for post in posts %}
-    {% comment %} <a href="/post/{{post._id}}{% endcomment %}
-    {% comment %} <a class="h5" href="{% url 'post_page' %}"> {% endcomment %}
-    <div class="d-flex justify-content-between p-2 px-3">
-        <div class="d-flex flex-row align-items-center">
-                <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">
-                        <h2>{{post.title}}</h2>
-                    </span>
-                    <small class="text-primary">Author- {{post.username}}</small>
-                </div>
+    {% comment %} <a href="/post/{{post._id}}> {% endcomment %}
+    <div class="container">
+        {% comment %} <a class="h5" href="{% url 'post_page' %}"> {% endcomment %}
+        <div class="d-flex justify-content-between p-2 px-3">
+            <div class="d-flex flex-row align-items-center">
+                    <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">
+                            <h2>{{post.title}}</h2>
+                        </span>
+                        <small class="text-primary">Author- {{post.username}}</small>
+                    </div>
+            </div>
+            <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">{{post.timeStamp}}</small> 
+                <i class="fa fa-ellipsis-h"></i>
+            </div>
         </div>
-        <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">{{post.timeStamp}}</small> 
-            <i class="fa fa-ellipsis-h"></i>
+        <div class="p-2">
+            <p class="text-justify">{{post.content}}</p>
         </div>
-    </div>
-    <div class="p-2">
-        <p class="text-justify">{{post.content}}</p>
+        <hr>
     </div>
     {% comment %} </a> {% endcomment %}
-    <hr>
+   
     {% endfor %}
 
     <div class="container" style="margin: 20px 10px; padding: 10px 60px; width:490px; background-color:whitesmoke; border-radius: 5px;">
         <form action="/ucommit/post/" method="post">
             {% csrf_token %}
             <div class="alpha">
-                <label for="author" class="form-label">Title</label></br>
-                <input type="text" name="author" class="form-control" id="author" aria-describedby="author"
+                <label for="title" class="form-label">Title</label></br>
+                <input type="text" name="title" class="form-control" id="title" aria-describedby="title"
                   style="width:465px; height: 20px; margin: 7px 0;">
             </div>
             <div class="beta">
-                <label for="author" class="form-label">Author Name</label></br>
-                <input type="text" name="author" class="form-control" id="author" aria-describedby="author"
+                <label for="username" class="form-label">Author Name</label></br>
+                <input type="text" name="username" class="form-control" id="username" aria-describedby="username"
                   style="width:465px; height: 20px; margin: 7px 0;">
             </div>
-            <div class="gama">
-                <label for="content" class="form-label">Post Content</label></br>
-                <textarea class="form-control" id="content" rows="3" style="width:465px; height: 100px; margin: 7px 0;" ></textarea>
+            <div class="beta">
+                <label for="content" class="form-label">Content</label></br>
+                <input type="text" name="content" class="form-control" id="content" aria-describedby="content"
+                  style="width:465px; height: 50px; margin: 7px 0;">
             </div>
+            
             <button type="submit" class="btn btn-primary btn-lg ">Submit</button>
         </form>
     </div>
@@ -58,12 +63,3 @@
 
 </html>
 
-
-<!-- <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div> -->
