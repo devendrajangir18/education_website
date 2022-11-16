@@ -35,7 +35,7 @@
                                 <h3>comments</h3>
                             </div>
                         </div>
-                        <div class="comments" style="width:40vw; margin: 0 20px;">
+                        <div class="comments" style="width:40vw; margin: 0 20px;"> 
                             {% for comment in comments %}
 
                             <div class="mb-2" style="display: inline-flex;"><img
@@ -49,9 +49,8 @@
                             <div class="text" style="margin:7px 5px">
                                 <span class="comment-text">{{comment.content}}</span>
                             </div>
-                            {% comment %} {% static 'img/comuser.png' %} d-flex flex-column {% endcomment %}
                             {% endfor %}
-
+                            
                             <div class="comment-input">
                                 <form action="/ucommit/post/{{post_id}}" method="post" style="width: 20vw;">
                                     {% csrf_token %}

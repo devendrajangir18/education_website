@@ -11,13 +11,13 @@ from .models import postcommit
 
 def postcommit(request):
     if request.method == 'POST':
-        # title = request.POST['title'] "title":title ,
+        title = request.POST['title'] 
         content = request.POST['content']
         username = request.POST['username']
         timeStamp = dt.now()
 
-        db.blogpost.insert_one({ "content": content, "username": username, "timeStamp": timeStamp})
-        post = {"content": content, "username": username, "timeStamp": timeStamp}
+        db.blogpost.insert_one({"title":title , "content": content, "username": username, "timeStamp": timeStamp})
+        post = {"title":title ,"content": content, "username": username, "timeStamp": timeStamp}
 
         return redirect(f'/ucommit/post/', post)
 
