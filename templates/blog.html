@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blog</title>
+  {% load static %}
+
+  {% load crispy_forms_tags %}
+
+  <!-- Favicon -->
+  <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+  <!-- <link href="{% static 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap' %}"
+    rel="stylesheet"> -->
+
+  <!-- Font Awesome -->
+  <!-- <link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' %}"
+    rel="stylesheet"> -->
+
+  <!-- Libraries Stylesheet -->
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Topbar Start -->
+  <div class="container-fluid d-none d-lg-block">
+    <div class="row align-items-center py-4 px-xl-5">
+      <div class="col-lg-3">
+        <a href="{% static '#' %}" class="text-decoration-none">
+          <h1 class="m-0"><span class="text-primary">E</span>COURSES</h1>
+        </a>
+      </div>
+      <div class="col-lg-3 text-right">
+        <div class="d-inline-flex align-items-center">
+          <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
+          <div class="text-left">
+            <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
+            <small>123 Street, New Delhi, India</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 text-right">
+        <div class="d-inline-flex align-items-center">
+          <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
+          <div class="text-left">
+            <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
+            <small>ecourse@example.com</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 text-right">
+        <div class="d-inline-flex align-items-center">
+          <i class="fa fa-2x fa-phone text-primary mr-3"></i>
+          <div class="text-left">
+            <h6 class="font-weight-semi-bold mb-1">Call Us</h6>
+            <small>+012 345 6789</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Topbar End -->
+
+  <!-- Navbar Start -->
+  <div class="container-fluid">
+    <div class="row border-top px-xl-5">
+      <div class="col-lg-3 d-none d-lg-block">
+        <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none"
+          data-toggle="collapse" href="{% static '#navbar-vertical' %}" style="height: 67px; padding: 0 30px;">
+          <h5 class="text-primary m-0"><i class="fa fa-book-open mr-2"></i>Subjects</h5>
+          <i class="fa fa-angle-down text-primary"></i>
+        </a>
+        <nav
+          class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light"
+          id="navbar-vertical" style="width: calc(100% - 30px); z-index: 9;">
+          <div class="navbar-nav w-100">
+            <div class="nav-item dropdown">
+              <a href="{% static '#' %}" class="nav-link" data-toggle="dropdown">Web Design <i
+                  class="fa fa-angle-down float-right mt-1"></i></a>
+              <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                <a href="{% static '#' %}" class="dropdown-item">HTML</a>
+                <a href="{% static '#' %}" class="dropdown-item">CSS</a>
+                <a href="{% static '#' %}" class="dropdown-item">jQuery</a>
+              </div>
+            </div>
+            <a href="{% static '#' %}" class="nav-item nav-link">Apps Design</a>
+            <a href="{% static '#' %}" class="nav-item nav-link">Marketing</a>
+            <a href="{% static '#' %}" class="nav-item nav-link">Research</a>
+            <a href="{% static '#' %}" class="nav-item nav-link">SEO</a>
+          </div>
+        </nav>
+      </div>
+      <div class="col-lg-9">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+          <a href="{% static '#' %}" class="text-decoration-none d-block d-lg-none">
+            <h1 class="m-0"><span class="text-primary">E</span>COURSES</h1>
+          </a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav py-0">
+              <a href="{% static 'index.html' %}" class="nav-item nav-link active">Home</a>
+              <a href="{% static 'about.html' %}" class="nav-item nav-link">About</a>
+              <a href="{% static 'course.html' %}" class="nav-item nav-link">Courses</a>
+              <!-- <a href="teacher.html" class="nav-item nav-link">Teachers</a> -->
+              <!-- <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Blog</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="blog.html" class="dropdown-item">Blog List</a>
+                                    <a href="single.html" class="dropdown-item">Blog Detail</a>
+                                </div>
+                            </div> -->
+              <a href="{% static 'contact.html' %}" class="nav-item nav-link">Contact</a>
+              <!-- login Button to trigger modal -->
+              <button type="button" class="btn btn-primary mx-3 my-3 py-1" data-bs-toggle="modal"
+                data-bs-target="#loginModal" id="loginModal">
+                Login
+              </button>
+              <!-- SignUp Button to trigger modal -->
+              <button type="button" class="btn btn-primary my-3 py-1" data-bs-toggle="modal"
+                data-bs-target="#signupModal" id="signupModal">
+                SignUp
+              </button>
+            </div>
+            {% comment %} <button type="button" class="btn btn-primary mx-1 my-3 py-1" data-bs-toggle="modal"
+              data-bs-target="#loginModal">
+              Join us
+            </button> {% endcomment %}
+            <a class="btn btn-primary py-2 px-4 mx-2" href="{% static '#' %}">Join
+              Now</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar End d-none d-lg-block-->
+
+  <main class="container">
+    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">Our Web Design Courses</h1>
+        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently
+          about what’s most interesting in this posts contents.</p>
+        <p class="lead mb-0"><a href="{% static '#' %}" class="text-white fw-bold">Continue reading...</a></p>
+      </div>
+    </div>
+
+    <!-- <div class="row mb-2">
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <h3 class="mb-0">Frontend</h3>
+            <div class="mb-1 text-muted">Nov 12</div>
+            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
+              additional content.</p>
+            <a href="{% static '#' %}" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+             <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+            <img class="img-fluid" src="{% static 'img/course-4.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="container">
+      <h3>Comments</h3>
+      <form action="blog" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="exmapleInputEmail">Post Comment</label>
+        </div><br>
+        <input type="text" class="form-control mb-2" name="comment" placeholder="Enter comment here">
+        <input type="hidden" name="postSno" value="{{post.sno}}">
+        <button type="submit" class="btn btn-primary ml-3 mb-2">Submit</button>
+      </form>
+
+      {% for comment in comments %}
+      <div class="row my-3">
+        <div class="col md-2 bg-primary">Image</div>
+        <div class="col md-10 bg-primary"><b>{{comment.user.username}}</b>{{comment.comment}}</div>
+      </div>
+      {% endfor %}
+
+    </div> -->
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success">Design cat-1.jpg</strong>
+            <h3 class="mb-0">Backend</h3>
+            <div class="mb-1 text-muted">Nov 11</div>
+            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
+              content.</p>
+            <a href="{% static '#' %}" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img class="img-fluid" src="{% static 'img/course-5.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block content %}
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-8 card mb-4  mt-3 ">
+            <div class="card-body">
+             
+              <h2>{{ comments.count }} comments</h2>
+
+              {% for comment in comments %}
+              <div class="comments" style="padding: 5px;">
+                <p class="font-weight-bold">
+                  {{ comment.name }}
+                  <span class=" text-muted font-weight-normal">
+                    {{ comment.created_on }}
+                  </span>
+                </p>
+                {{ comment.body | linebreaks }}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="col-md-8 card mb-4  mt-3 ">
+            <div class="card-body">
+              {% if new_comment %}
+              <div class="alert alert-success" role="alert">
+                Your comment is awaiting moderation
+              </div>
+              {% else %}
+              <h3>Leave a comment</h3>
+              <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form.as_p | crispy }}
+                {% csrf_token %}
+                <input type="text" class="form-control mb-2" name="comment" placeholder="Enter comment here">
+                <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+              </form>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock content %} 
+
+
+</body>
+
+</html>

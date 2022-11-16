@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% comment %}
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script> {% endcomment %}
+
+</head>
+
+<body>
+    <div class="container" style="margin-left:50vh; margin-top: 10vh; width: 30vw; height: 50vh; background-color:antiquewhite; padding: 40px 80px; border-radius: 12px;">
+        <div>
+            {% for message in messages %}
+            <h3> {{message}} </h3>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <form action="/account/register/" method="post">
+                {% csrf_token %}
+                <div class="mb-3 my-2">
+                    <label for="first_name" class="form-label">First Name</label></br>
+                    <input type="text" name="first_name" class="form-control" id="first_name" style="width:400px; height: 20px; margin: 7px 0;">
+                </div>
+                <div class="mb-3 my-2">
+                    <label for="last_name" class="form-label">Last Name</label></br>
+                    <input type="text" name="last_name" class="form-control" id="last_name" style="width:400px; height: 20px; margin: 7px 0;">
+                </div>
+                <div class="mb-3 my-2">
+                    <label for="username" class="form-label">username</label></br>
+                    <input type="text" name="username" class="form-control" id="usernamename" style="width:400px; height: 20px; margin: 7px 0;">
+                </div>
+                <div class="mb-3 my-2">
+                    <label for="signupInputEmail1" class="form-label">Email address</label></br>
+                    <input type="email" name="email" class="form-control" id="signupInputEmail1" aria-describedby="emailHelp"style="width:400px; height: 20px; margin: 7px 0;">
+                    <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3 my-2">
+                    <label for="signupInputPassword1" class="form-label">Password</label></br>
+                    <input type="password" name="password1" class="form-control" id="signupInputPassword1" style="width:400px; height: 20px; margin: 7px 0;">
+                </div>
+                <div class="mb-3 my-2">
+                    <label for="signupInputPassword2" class="form-label">Confirm Password</label></br>
+                    <input type="password" name="password2"class="form-control" id="signupInputPassword2" style="width:400px; height: 20px; margin: 7px 0;">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="signupCheck1" style="margin: 7px 0;>
+                    <label class="form-check-label" for="signupCheck1">Check me out</label></br>
+                </div>
+                <button type="submit" class="btn btn-primary my-3 py-1">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

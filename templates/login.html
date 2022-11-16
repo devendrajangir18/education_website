@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> 
+    <script src="main.js"></script>  -->
+</head>
+
+<body>
+  <div class="container"
+    style="margin-left:50vh; margin-top: 10vh; width: 30vw; height: 40vh; background-color:antiquewhite; padding: 40px 80px; border-radius: 12px;">
+    <div>
+      {% for message in messages %}
+      <h3> {{message}} </h3>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <form action="/account/login/" method="post">
+        {% csrf_token %}
+        <div class="box1">
+          <label for="loginInputEmail1" class="form-label">Email address</label></br>
+          <input type="email" name="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp"
+            style="width:400px; height: 20px; margin: 7px 0;">
+          <div id="emailHelp" class="form-text"></div>
+        </div>
+        <div class="box2">
+          <label for="loginInputPassword1" class="form-label">Password</label></br>
+          <input type="password" name="password" class="form-control" id="loginInputPassword1"
+            style="width:400px; height: 20px; margin: 7px 0;">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="loginCheck1" style="margin: 7px 0;">
+          <label class="form-check-label " for="loginCheck1">Check me out</label></br>
+        </div>
+        <button type="submit" class="btn btn-light my-3 py-1">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
