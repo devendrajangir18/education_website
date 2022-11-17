@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog-post</title>
+    {% load static %}
+</head>
+
+<body>
+    <div class="container mt-5 mb-5" style="width:70vw; margin: 0 20px; ">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="d-flex justify-content-between p-2 px-3">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">
+                                    <h2>{{post.post_title}}</h2>
+                                </span>
+                                <small class="text-primary">Author- {{post.author}}</small>
+                            </div>
+                        </div>
+                        <!-- <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">{{post.timeStamp}}</small> <i -->
+                                <!-- class="fa fa-ellipsis-h"></i> </div> -->
+                    </div>
+                    <div class="p-2">
+                        <p class="text-justify">{{post.content}}</p>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fa fa-heart"></i> <i
+                                    class="fa fa-smile-o ml-2"></i> </div>
+                            <div class="d-flex flex-row muted-color">
+                                <h3>comments</h3>
+                            </div>
+                        </div>
+                        <div class="comments" style="width:40vw; margin: 0 20px;"> 
+                            {% for comment in comments %}
+
+                            <div class="mb-2" style="display: inline-flex;"><img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2t99jZfW02kCof24jait9E-qZl_XsVmJkXg&usqp=CAU"
+                                    width="40" class="rounded-image">
+                                <div class="ml-2 "><span class="name"
+                                        style="color:cornflowerblue; margin:4px;">{{comment.username}}</span></br>
+                                    <small class="timeStamp" style="margin:4px;">{{comment.timeStamp}}</small>
+                                </div>
+                            </div>
+                            <div class="text" style="margin:7px 5px">
+                                <span class="comment-text">{{comment.text}}</span>
+                            </div>
+                            {% endfor %}
+                            
+                            <div class="comment-input">
+                                <form action="/lastpost/postblog/{{post_id}}" method="post" style="width: 20vw;">
+                                    {% csrf_token %}
+                                    <input type="text" class="form-control mb-1"
+                                        style="width: 15vw; height:3vh; margin: 4px 0;" name="username"
+                                        placeholder="Enter Username"></br>
+                                    <input type="text" class="form-control mb-1"
+                                        style="width: 15vw; height:3vh; margin: 4px 0;" name="text"
+                                        placeholder="Enter comment here"></br>
+                                    <button type="submit" class="btn btn-primary btn-lg ">Submit</button>
+                                </form>
+                                <hr>
+                            </div>                         
+                        </div>
+                    </div>
+                </div>
+                <form action="/lastpost/postblog/" method="post">
+                    {% csrf_token %}
+                    <div class="alpha">
+                        <label for="title" class="form-label">Title</label></br>
+                        <input type="text" name="title" class="form-control" id="title" aria-describedby="title"
+                          style="width:465px; height: 20px; margin: 7px 0;">
+                    </div>
+                    <div class="beta">
+                        <label for="username" class="form-label">Author Name</label></br>
+                        <input type="text" name="username" class="form-control" id="username" aria-describedby="username"
+                          style="width:465px; height: 20px; margin: 7px 0;">
+                    </div>
+                    <div class="beta">
+                        <label for="content" class="form-label">Content</label></br>
+                        <input type="text" name="content" class="form-control" id="content" aria-describedby="content"
+                          style="width:465px; height: 50px; margin: 7px 0;">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg ">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

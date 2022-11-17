@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_u29-j1bo!96wx9p#1w&+=yonal21bfq1dw*6qb0t8!#ay9n^i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['local host', '127.0.0.1']
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ecourse',
     'account',
     'ucommit',
+    'lastpost',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

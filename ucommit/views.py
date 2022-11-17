@@ -5,7 +5,6 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from edupro.settings import db
 
-from .models import postcommit
 
 # Create your views here
 
