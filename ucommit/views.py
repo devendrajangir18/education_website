@@ -16,7 +16,7 @@ def postcommit(request):
         timeStamp = dt.now()
 
         db.blogpost.insert_one({"title":title , "content": content, "username": username, "timeStamp": timeStamp})
-        post = {"title":title ,"content": content, "username": username, "timeStamp": timeStamp}
+        # post = {"title":title ,"content": content, "username": username, "timeStamp": timeStamp}
 
         return redirect(f'/ucommit/post/',)
 
