@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('ucommit/', include('ucommit.urls')),
-    path('lastpost/',include('lastpost.urls')),
+    # path('lastpost/',include('lastpost.urls')),
 ]
 
 urlpatterns = urlpatterns + \

@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'ecourse',
     'account',
     'ucommit',
-    'lastpost',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
